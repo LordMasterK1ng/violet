@@ -7,10 +7,9 @@ import java.util.concurrent.Semaphore;
 /**
  * @author 姚琛
  * @description Semaphore：n.信号标; 旗语;
- * 可理解为“许可证”,对于某些重量级业务，耗时长。对此，不希望同时有过多的线程同时访问，可使用semaphore来做限制
- * <p>
- * semaphore的aquire()和release()，没有严格限制必须同一线程来调用，因此可用来实现“轻量级的CountDownLatch”
- * Thread1调用aquire()，Thread2调用relase()，合理设置参数，使得Thread2执行完毕后，交由Thread1执行
+ * 可理解为“许可证”,对于某些重量级业务，耗时长。对此，不希望同时有过多的线程同时访问，可使用semaphore来做限制。
+ * semaphore的aquire()和release()，没有严格限制必须同一线程来调用。
+ * “轻量级的CountDownLatch”：Thread1调用aquire()，Thread2调用relase()，合理设置参数，使得Thread2执行完毕后，交由Thread1执行。
  * @date 2021/12/13
  */
 public class SemaphoreDemo1 {
