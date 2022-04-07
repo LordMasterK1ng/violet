@@ -17,13 +17,13 @@ public class StringOptions {
 
     public static void section1() {
         /**
-         *   1.直接定义的String变量，会存在字符串常量池中
-         *   2.在编译后final关键字会被优化掉，详见javap反编字节码文件
-         *   3.使用String构造方法创建出的字符串对象，对象会在堆中创建；同时将该字符串放置在常量池中
+         *   1.在编译后final关键字会被优化掉，详见javap反编字节码文件
+         *   2.使用String构造方法创建出的字符串对象，对象会在堆中创建；同时将该字符串放置在常量池中
+         *   3.直接定义的String变量，会存在字符串常量池中
          */
-        String str = "abc";
         final String str1 = "ab";
         String str2 = new String("abc");
+        String str = "abc";
         System.out.println(str == str2);
     }
 
