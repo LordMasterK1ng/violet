@@ -4,9 +4,9 @@ package com.yc.violet.base;
  * @author 姚琛
  * @description 针对各种String操作的记录
  * 参考：https://blog.csdn.net/qq_35692642/article/details/115409764
- *      https://blog.csdn.net/weixin_40208575/article/details/104528388
- *      https://www.cnblogs.com/mjyung/p/12688295.html
- *      https://blog.csdn.net/weixin_34413802/article/details/88009934
+ * https://blog.csdn.net/weixin_40208575/article/details/104528388
+ * https://www.cnblogs.com/mjyung/p/12688295.html
+ * https://blog.csdn.net/weixin_34413802/article/details/88009934
  * @remarks JDK版本1.8, 注释中的常量池，均指 堆中的字符串常量池
  * @date 2021/12/10
  */
@@ -93,6 +93,7 @@ public class StringOptions {
         System.out.println(str1 == str3);//true
         System.out.println(str2 == str3);//true
     }
+
     public static void section7() {
         /**
          * 1.在常量池中放置“ab”对象
@@ -106,5 +107,27 @@ public class StringOptions {
         System.out.println(str1 == str2);//false
         System.out.println(str1 == str3);//true
         System.out.println(str2 == str3);//false
+    }
+
+    public static void section8() {
+        String str1 = "str";
+        String str2 = "ing";
+        String str3 = "str" + "ing";//常量优化
+        String str4 = str1 + str2;
+        String str5 = "string";
+        System.out.println(str3 == str4);//false
+        System.out.println(str3 == str5);//true
+        System.out.println(str4 == str5);//false
+
+    }
+
+    public static void section9() {
+        final String str1 = "str";
+        final String str2 = "ing";
+        // 下面两个表达式其实是等价的
+        String c = "str" + "ing";// 常量池中的对象
+        String d = str1 + str2; // 常量池中的对象
+        System.out.println(c == d);// true
+
     }
 }
